@@ -1,5 +1,5 @@
 import 'package:adminpanel/constants.dart';
-import 'package:adminpanel/screens/main/mainscreen.dart';
+import 'package:adminpanel/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
