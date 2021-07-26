@@ -5,23 +5,25 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-
-
-
 class CloudStoragesDataRow extends StatelessWidget {
   const CloudStoragesDataRow({
     Key key,
+    this.crossAxisCount = 4,
+    this.childAspectRatio  = 1,
   }) : super(key: key);
-
+  final int crossAxisCount ;
+  final double childAspectRatio;
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: demoMyFiles.length,
       shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(), //to not make grid scrollable 
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
+        crossAxisCount: crossAxisCount,
+        childAspectRatio: childAspectRatio,
         crossAxisSpacing: defaultPadding,
-        childAspectRatio: 1.4,
+        mainAxisSpacing: defaultPadding,
       ),
       itemBuilder: (context, index) => CloudCards(
         info: demoMyFiles[index],
@@ -29,8 +31,6 @@ class CloudStoragesDataRow extends StatelessWidget {
     );
   }
 }
-
-
 
 class CloudCards extends StatelessWidget {
   const CloudCards({

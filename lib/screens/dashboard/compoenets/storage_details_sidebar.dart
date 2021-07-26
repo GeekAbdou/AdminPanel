@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'chart.dart';
+
 class StorageDetails extends StatelessWidget {
   const StorageDetails({
     Key key,
@@ -10,38 +11,35 @@ class StorageDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: Container(
-        padding: EdgeInsets.all(defaultPadding),
-        decoration: BoxDecoration(
-          color: secondaryColor,
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Storage Details",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-              ),
+    return Container(
+      padding: EdgeInsets.all(defaultPadding),
+      decoration: BoxDecoration(
+        color: secondaryColor,
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Storage Details",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
             ),
-            Chart(),
-            SizedBox(
-              height: defaultPadding,
-            ),
-            StorageTiles()
-          ],
-        ),
+          ),
+          Chart(),
+          SizedBox(
+            height: defaultPadding,
+          ),
+          StorageTilesData()
+        ],
       ),
     );
   }
 }
 
-class StorageTiles extends StatelessWidget {
-  const StorageTiles({
+class StorageTilesData extends StatelessWidget {
+  const StorageTilesData({
     Key key,
   }) : super(key: key);
 

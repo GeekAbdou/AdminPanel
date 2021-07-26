@@ -1,4 +1,5 @@
 import 'package:adminpanel/constants.dart';
+import 'package:adminpanel/responsive.dart';
 import 'package:flutter/material.dart';
 import 'compoenets/header.dart';
 import 'compoenets/my_files.dart';
@@ -25,12 +26,18 @@ class DashbaordScreen extends StatelessWidget {
                       children: [
                         MyFiles(),
                         RecentFiles(),
+                        if (Responsive.isMobile(context)) SizedBox(height: defaultPadding),
+                        if (Responsive.isMobile(context)) StorageDetails(),
                       ],
                     ),
                   ),
                 ),
                 SizedBox(width: defaultPadding),
-                StorageDetails(),
+                if (!Responsive.isMobile(context))
+                  Expanded(
+                    flex: 2,
+                    child: StorageDetails(),
+                  ),
               ],
             )
           ],
@@ -39,4 +46,3 @@ class DashbaordScreen extends StatelessWidget {
     );
   }
 }
-
